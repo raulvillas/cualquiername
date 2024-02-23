@@ -1,0 +1,518 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: url(background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans,
+    Helvetica Neue, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.login-form-1,
+.login-form-2 {
+  width: 440px;
+  background-color: #fff;
+  padding-top: 44px;
+  padding-right: 44px;
+  padding-left: 44px;
+  padding-bottom: 90px;
+  box-shadow: 0 1px 3px #000;
+  position: relative;
+  min-height: 330px;
+}
+
+.login-form-2 {
+  display: none;
+}
+
+.login-form-3 {
+  display: none;
+  width: 440px;
+  background-color: #fff;
+  padding-top: 44px;
+  padding-right: 44px;
+  padding-left: 44px;
+  padding-bottom: 90px;
+  box-shadow: 0 1px 3px #000;
+  position: relative;
+  min-height: 370px;
+}
+
+.login-form-4 {
+  display: none;
+  width: 440px;
+  background-color: #fff;
+  padding-top: 44px;
+  padding-right: 44px;
+  padding-left: 44px;
+  padding-bottom: 90px;
+  box-shadow: 0 1px 3px #000;
+  position: relative;
+  min-height: 420px;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+  color: #787878;
+  font-weight: 700;
+  font-family: "Segoe UI Semibold";
+  margin-bottom: 10px;
+}
+
+.logo img {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #404040;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  font-size: 15px;
+  color: #e81123;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.loader,
+.wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loader {
+  width: 100%;
+  bottom: 19px;
+  display: none;
+}
+
+.loader .wrapper span {
+  width: 3px;
+  height: 3px;
+  background-color: black;
+  display: inline-block;
+  margin: 0 2px;
+  border-radius: 50%;
+  animation: loading 3500ms ease-in-out infinite;
+  opacity: 0;
+  position: absolute;
+}
+
+.loader .wrapper span:nth-child(5) {
+  animation-delay: 100ms;
+}
+.loader .wrapper span:nth-child(4) {
+  animation-delay: 200ms;
+}
+.loader .wrapper span:nth-child(3) {
+  animation-delay: 300ms;
+}
+.loader .wrapper span:nth-child(2) {
+  animation-delay: 400ms;
+}
+.loader .wrapper span:nth-child(1) {
+  animation-delay: 500ms;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  35%,
+  65% {
+    transform: translateX(-70px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+#txtmail,
+#txtpass {
+  width: 100%;
+  border-top: 0;
+  border-bottom: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  padding: 10px 0;
+  font-weight: 400;
+  font-family: "Segoe UI Light";
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+#txtmail:focus {
+  border-bottom: 1px solid #003465;
+}
+#txtpass:focus {
+  border-bottom: 1px solid #003465;
+}
+
+#pin1,
+#pin2 {
+  width: 100%;
+  border-top: 0;
+  border-bottom: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  padding: 10px 0;
+  font-weight: 400;
+  font-family: "Segoe UI Light";
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+#pin1:focus {
+  border-bottom: 1px solid #003465;
+}
+
+#pin2:focus {
+  border-bottom: 1px solid #003465;
+}
+
+#pin3,
+#pin4 {
+  width: 100%;
+  border-top: 0;
+  border-bottom: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  padding: 10px 0;
+  font-weight: 400;
+  font-family: "Segoe UI Light";
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+#pin3:focus {
+  border-bottom: 1px solid #003465;
+}
+
+#pin4:focus {
+  border-bottom: 1px solid #003465;
+}
+
+.errorpintxt {
+  position: relative;
+  color: red;
+  top: -5px;
+}
+
+.create-account {
+  font-size: 13px;
+}
+
+.create-account a {
+  text-decoration: none;
+  color: #0067b8;
+}
+
+.create-account a:hover {
+  color: #666666;
+}
+
+.security-key-login {
+  font-size: 13px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.security-key-login a {
+  text-decoration: none;
+  color: #0067b8;
+}
+
+.security-key-login a:hover {
+  color: #666666;
+}
+
+.security-key-login img {
+  width: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.login-options {
+  font-size: 13px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login-options a {
+  text-decoration: none;
+  color: #0067b8;
+}
+
+.login-options a:hover {
+  color: #666666;
+}
+
+.next-btn {
+  font-family: "Segoe UI Light";
+  background-color: #005da6;
+  width: 115px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  position: absolute;
+  right: 44px;
+  font-weight: normal;
+}
+
+.next-btn2 {
+  font-family: "Segoe UI Light";
+  background-color: #005da6;
+  width: 115px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  position: absolute;
+  right: 44px;
+  bottom: 55px;
+  font-weight: normal;
+}
+.next-btn3 {
+  font-family: "Segoe UI Light";
+  background-color: #005da6;
+  width: 115px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  position: absolute;
+  right: 44px;
+  bottom: 40px;
+  font-weight: normal;
+}
+.login-btn {
+  font-family: "Segoe UI Light";
+  background-color: #005da6;
+  width: 115px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 35px;
+  right: 44px;
+  font-weight: normal;
+}
+
+.next-btn:hover {
+  filter: brightness(90%);
+}
+
+.next-btn2:hover {
+  filter: brightness(90%);
+}
+
+.login-btn:hover {
+  filter: brightness(90%);
+}
+
+.current-email {
+  font-weight: 400;
+  font-size: 15px;
+  color: #545454;
+  margin-top: 17px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.current {
+  padding-bottom: 5px;
+  margin-left: -3px;
+}
+
+.current-email i {
+  margin-right: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 25px;
+}
+
+.current-email i:hover {
+  background-color: #e5e5e5;
+}
+
+.keep-session {
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+  text-align: right;
+  font-size: 12px;
+  height: 28px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 400;
+  bottom: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+  margin: 0 10px;
+}
+
+footer span {
+  margin: 0 10px;
+}
+
+.txtmail:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.txtpass:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.pin1:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.pin2:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.pin3:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.pin4:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.fa-arrow-left {
+  background-image: url("../fotos/backleft.svg");
+}
+
+@media all and (max-width: 600px) {
+  .login-form-1 {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .login-form-2 {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .login-form-3 {
+    width: 100%;
+
+    height: 100%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .login-form-4 {
+    width: 100%;
+
+    height: 100%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .next-btn2 {
+    top: 280px;
+    height: 32px;
+  }
+  @media all and (max-width: 600px) {
+    .next-btn3 {
+      top: 340px;
+      height: 32px;
+    }
+  }
+
+  @media all and (max-width: 600px) {
+    .login-btn {
+      top: 340px;
+      height: 32px;
+    }
+  }
+}

